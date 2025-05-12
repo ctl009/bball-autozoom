@@ -1,49 +1,14 @@
-BASKETBALL GAME AUTOZOOM
+# Basketball Game Autozooming Bot
 
-This basketball game autozoom program can automatically perform zooming of a basketball game. To run this, you will need to install the following libraries (see installation instruction links):
+A computer vision bot that automatically zooms in and out in a basketball game video based on play activity.
 
-Pytorch: https://pytorch.org/get-started/locally/
+## Features
 
-Inference from Roboflow: https://inference.roboflow.com/quickstart/run_a_model/
+- Detects players, referees, and basketball using custom YOLOv5 model
+- Tracks segmented objects using Meta's Segment Anything Model (SAM2)
+- Estimates human poses with HMR2 to inform zoom behavior
+- Dynamically adjusts zoom based on player and referee motion cues
 
-Hugging Face transformers: https://huggingface.co/docs/transformers/en/installation
+## License
 
-SAM2 from Meta: https://github.com/facebookresearch/sam2
-
-HMR2.0 requirement: https://github.com/shubham-goel/4D-Humans
-
-
-If running locally, you will need to change the SAM2 reference directory in the obj_detect.py script to reference the installation location of SAM2.
-
-To run the entire pipeline, you may run the entire gradio_bball_zoom.ipynb notebook and use the linked gradio interface to upload your basketball game video for autozooming.
-
-
-Below are the explanations for the other parameters:
-
-Grounding DINO or YOLO - Object detector to use as well as the detection parameters. 
-
-Frame length (how many frames you want in your autozoomed video)
-
-Frame stride (how many frames to skip in the pipeline)
-
-GIF duration (how long each frame of the GIF pauses for)
-
-"Use previous data" if you've already generated annotated images from a previous run and just want to play around with the autozoom settings.
-
-"Use pose data" to include pose data for autozooming. 
-
-"Out filename" is the filename of the autozoomed output GIF. 
-
-Below are the explanations for the other parameters:
-
-FPS - Frames per second of the output gif 
-
-IDs Targeted (separated by commas) - The IDs of targeted objects (as written in the annotation JSON file). Used for debugging. 
-
-Labels Targeted (separated by commas) - The labels of things to target ex: "basketball, player, referee" 
-
-Closest to Ball - Slider of how many players closest to the ball should be tracked. 
-
-X Padding - Padding in the x-direction away from detected tracked objects 
-
-Y Padding - Padding in the y-direction away from detected tracked objects
+[MIT](LICENSE) © 2025 Chris Lee
